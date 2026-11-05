@@ -20,13 +20,13 @@ export interface TaskListProps {
 // types/index.ts
 export interface TaskItemProps {
   task: Task;
-  onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
+  onStatusChange?: (taskId: string, newStatus: TaskStatus) => void;
   onDelete?: (taskId: string) => void;
   onEdit?: (taskId: string) => Task;
-  addTodo: (text: string) => Task;
+  addTodo: (text: string) => void;
   toggleTodo: (id: string | number) => void;
   deleteTodo: (id: string | number) => void;
-  editTodo: (id: string | number, newText: string) => Task;
+  editTodo: (id: string | number, newText: string) => void;
   clearCompleted: (id: string | number) => void; //  Removes all completed todos.
 }
 

@@ -20,6 +20,30 @@
 - Add persistence layer to Context-based app with localstorage
 - Understand basic performance considerations when working with Context API.
 
+### Type Definitions & Interface Planning
+
+- TaskStatus (type)
+- Task (interface)
+- TaskListProps (interface)
+- TaskItemProps (interface)
+- TaskFilterProps (interface)
+- FormDataProps (interface)
+- ThemeSwitchingProps (interface)
+
+### Components Planning
+
+- TodoInput
+- TodoList
+- TodoItem
+- FilterButtons
+- ThemeToggleButton
+
+### Context Planning
+
+- TodoContext (Todo Manager)
+- FilterContext (Filter Manager)
+- ThemeContext (Theme Manager)
+
 #### What is Done
 
 #### What is Pending

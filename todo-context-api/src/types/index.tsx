@@ -1,19 +1,20 @@
 // types/index.ts
-export type TaskStatus = "pending" | "in-progress" | "completed" | "";
+
+// modified each type in relevance to the application structure and requirement
+
+export type TaskStatus = "Active" | "Completed" | "";
 
 export interface Task {
   id: string;
-  title: string;
-  description: string;
+  text: string;
   status: TaskStatus;
-  priority: "low" | "medium" | "high" | "";
-  dueDate: string;
 }
 
 export interface TaskListProps {
   tasks: Task[];
   onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
   onDelete: (taskId: string) => void;
+  onEdit: (taskId: string) => Task;
 }
 
 // types/index.ts
@@ -21,26 +22,24 @@ export interface TaskItemProps {
   task: Task;
   onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
   onDelete: (taskId: string) => void;
+  onEdit: (taskId: string) => Task;
+  addTodo: (text: string) => Task;
+  toggleTodo: (id: string | number) => void;
+  deleteTodo: (id: string | number) => void;
+  editTodo: (id: string | number, newText: string) => Task;
+  clearCompleted: (id: string | number) => void; //  Removes all completed todos.
 }
 
-// types/index.ts
 export interface TaskFilterProps {
-  onFilterChange: (filters: {
-    status?: TaskStatus;
-    priority?: "low" | "medium" | "high" | "";
-    searchString?: string;
-  }) => void;
+  onFilterChange: (filters: { status?: TaskStatus }) => void;
+  setFilter: (filter: string) => void;
 }
-
-// Task data structure - previously Task
-
-// Component Props - previously used ones
-
-// Filter Options - previously used ones
-
-// New Interfaces introduced
 
 export interface FormDataProps {
   tasksLength: number;
   onTaskChange: (newTask: Task) => void;
+}
+
+export interface ThemeSwitchingProps {
+  toggleTheme: (currentTheme: string) => void;
 }

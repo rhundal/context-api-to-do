@@ -1,0 +1,27 @@
+### Project Objective
+
+- Build a To Do Application using React's Context API to manage various aspects such as
+  - lists of todos
+  - current visibility filters
+  - a simple theme
+- implementing providers
+- consuming context values in components
+- handling complex state updates
+- basic persistence
+- optimization techniques with Context
+
+### Learning
+
+- Design multiple contexts which independently handle different pieces of global states
+- Create and use Context Providers to make state and dispatch functions available throughout the component tree
+- Consume context values and functions in components using `useContext` hook
+- Manage complex states [array of objects, filter states] - using useState or `useReducer` with context providers
+- Implement features with interactions between multiple contexts
+- Add persistence layer to Context-based app with localstorage
+- Understand basic performance considerations when working with Context API.
+
+#### What is Done
+
+#### What is Pending
+
+#### Reflections

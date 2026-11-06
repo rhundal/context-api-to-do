@@ -7,6 +7,8 @@ interface taskProps {
 }
 
 export default function TodoItem({ task }: taskProps) {
+  const isCompleted = task.status === "Completed";
+
   const [editMode, setEditMode] = useState(false);
   const [inputField, setInputField] = useState("");
   const context = useContext(ToDoContext);
@@ -15,6 +17,7 @@ export default function TodoItem({ task }: taskProps) {
 
   const deleteTodo = context.initialTask.deleteTodo;
   const editTodo = context.initialTask.editTodo;
+  const toggleTodo = context.initialTask.toggleTodo;
 
   function handleDeleteTask(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -41,6 +44,10 @@ export default function TodoItem({ task }: taskProps) {
     saveChanges(inputField);
   }
 
+  function toggleTodoStatus() {
+    toggleTodo(task.id);
+  }
+
   return (
     <>
       <div className="bg-white w-full flex justify-between flex-row py-3 px-5 border-1 border-gray-300 rounded-md">
@@ -65,10 +72,19 @@ export default function TodoItem({ task }: taskProps) {
             <div className="flex flex-row gap-3 text-lg items-center">
               <input
                 type="checkbox"
-                // checked={task.status === "Completed"}
+                checked={isCompleted}
+                onChange={toggleTodoStatus}
                 className="rounded-full border border-gray-300 appearance-none w-5 h-5 checked:bg-green-400 checked:border-transparent"
               />
-              {task.text}
+              <span
+                className={`${
+                  isCompleted
+                    ? "line-through text-gray-400 italic"
+                    : "text-gray-800"
+                }`}
+              >
+                {task.text}
+              </span>
             </div>
             <div className="flex flex-row gap-2">
               <button

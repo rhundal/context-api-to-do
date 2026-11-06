@@ -77,16 +77,17 @@ export function TodoProvider({ children }: TodoProviderProps) {
   function toggleTaskStatus(id: string | number) {
     let selectedTask = allTasks.find((task) => task.id === id);
     if (!selectedTask) return;
-    setDisplayedTasks(
-      allTasks.map((task) =>
-        task === selectedTask
-          ? {
-              ...task,
-              status: task.status === "Active" ? "Completed" : "Active",
-            }
-          : task,
-      ),
+    const updatedTasks: Task[] = allTasks.map((task) =>
+      task.id === id
+        ? {
+            ...task,
+            status: task.status === "Active" ? "Completed" : "Active",
+          }
+        : task,
     );
+    setTasksLength(updatedTasks.length);
+    setAllTasks(updatedTasks);
+    setDisplayedTasks(updatedTasks);
     setHasUpdatedStatus(true);
   }
 

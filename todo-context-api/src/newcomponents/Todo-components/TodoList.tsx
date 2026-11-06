@@ -15,6 +15,10 @@ export default function TodoList({ currFilter }: { currFilter: string }) {
 
   // const activeStatus = currentFilter || "All";
 
+  const itemsLeftCount = displayedTasks.filter(
+    (task) => task.status === "Active",
+  ).length;
+
   const filteredTasks = displayedTasks.filter((task) => {
     if (currFilter === "Active") return task.status === "Active";
     if (currFilter === "Completed") return task.status === "Completed";
@@ -32,7 +36,7 @@ export default function TodoList({ currFilter }: { currFilter: string }) {
       </div>
       <hr className="border-t border-gray-300 w-full mx-auto" />
       <div className="bg-white w-full flex justify-between flex-row p-3">
-        {displayedTasks.length} items left
+        {itemsLeftCount} items left
       </div>
     </div>
   );

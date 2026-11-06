@@ -65,6 +65,7 @@ export default function TodoItem({ task }: taskProps) {
             <div className="flex flex-row gap-3 text-lg items-center">
               <input
                 type="checkbox"
+                // checked={task.status === "Completed"}
                 className="rounded-full border border-gray-300 appearance-none w-5 h-5 checked:bg-green-400 checked:border-transparent"
               />
               {task.text}

@@ -17,6 +17,7 @@ interface TodoContextType {
   initialTask: TaskItemProps;
   hasUpdatedText: boolean;
   hasUpdatedStatus: boolean;
+  displayedTasks: Task[];
 }
 
 // 1. creating context
@@ -126,6 +127,7 @@ export function TodoProvider({ children }: TodoProviderProps) {
         editTodo: updateTask,
         clearCompleted: removeCompleted,
       },
+      displayedTasks,
       hasUpdatedText,
       hasUpdatedStatus,
     }),

@@ -1,9 +1,22 @@
 import TodoList from "./TodoList";
 
-
+import { useContext, useState } from "react";
+import ToDoContext from "../../context/TodoContext";
 
 export default function TodoInput() {
+  const context = useContext(ToDoContext);
 
+  if (!context) return null;
+
+  const { addTodo } = context.initialTask;
+
+  const [inputField, setInputField] = useState("");
+
+  function handleAddTask() {
+    if (!inputField.trim()) return;
+    addTodo(inputField);
+    setInputField("");
+  }
 
   return (
     <>
@@ -13,10 +26,15 @@ export default function TodoInput() {
             type="text"
             placeholder="What needs to be done?"
             className="w-full h-12 border-t border-gray-100 rounded-md bg-white"
+            value={inputField}
+            onChange={(e) => setInputField(e.target.value)}
           />
         </div>
         <div className="my-auto">
-          <button className="text-lg bg-blue-600 rounded-md px-7 py-3 text-white whitespace-nowrap">
+          <button
+            onClick={handleAddTask}
+            className="text-lg bg-blue-600 rounded-md px-7 py-3 text-white whitespace-nowrap"
+          >
             Add Todo
           </button>
         </div>

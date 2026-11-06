@@ -1,5 +1,17 @@
 import TodoItem from "./TodoItem";
+
+import { useContext, useState } from "react";
+import ToDoContext from "../../context/TodoContext";
+
 export default function TodoList() {
+  const context = useContext(ToDoContext);
+
+  if (!context) return null;
+
+  const displayedTasks = context.displayedTasks;
+
+  console.log(displayedTasks);
+
   return (
     <div className="m-5">
       <div>

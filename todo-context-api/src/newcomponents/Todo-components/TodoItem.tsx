@@ -10,8 +10,8 @@ export default function TodoItem() {
           new
         </div>
         <div className="flex flex-row gap-2">
-          <button className="bg-[url('/public/delete.jpg')] bg-cover bg-center w-10 h-11"></button>
-          <button className="bg-[url('/public/edit.svg')] bg-cover bg-center w-12 h-12"></button>
+          <button className="bg-[url('/delete.jpg')] bg-cover bg-center w-10 h-11"></button>
+          <button className="bg-[url('/edit.svg')] bg-cover bg-center w-12 h-12"></button>
         </div>
       </div>
     </>

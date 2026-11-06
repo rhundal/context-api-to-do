@@ -48,12 +48,10 @@
 
 - Add, Edit, Delete Todo
 - Display Todos
+- Filter Buttons implementation
+- Strike through for completed items
 
 #### What is Pending
 
-- Filter Buttons implementation
-- Strike through for completed items
 - Switch Theme Light/Dark
 - Local Storage
-
-#### Reflections

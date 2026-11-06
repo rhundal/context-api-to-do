@@ -1,5 +1,4 @@
 import TodoItem from "./TodoItem";
-import { type TaskStatus } from "../../types";
 import { useContext } from "react";
 import ToDoContext from "../../context/TodoContext";
 import FilterContext from "../../context/FilterContext";

@@ -1,8 +1,7 @@
 import TodoItem from "./TodoItem";
 export default function TodoList() {
   return (
-    <div>
-      List
+    <div className="m-5">
       <div>
         <TodoItem />
       </div>

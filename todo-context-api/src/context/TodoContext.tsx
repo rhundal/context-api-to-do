@@ -99,11 +99,12 @@ export function TodoProvider({ children }: TodoProviderProps) {
   function updateTask(taskId: string | number, newText: string) {
     let selectedTask = allTasks.find((task) => task.id === taskId);
     if (!selectedTask) return;
-    setDisplayedTasks(
-      allTasks.map((task) =>
-        task === selectedTask ? { ...task, stattextus: newText } : task,
-      ),
+
+    const updatedTasks = allTasks.map((task) =>
+      task.id === taskId ? { ...task, text: newText } : task,
     );
+    setAllTasks(updatedTasks);
+    setDisplayedTasks(updatedTasks);
   }
 
   function removeCompleted() {

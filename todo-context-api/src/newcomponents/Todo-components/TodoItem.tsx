@@ -1,7 +1,7 @@
 export default function TodoItem() {
   return (
     <>
-      <div className="bg-white w-full flex justify-between flex-row p-5">
+      <div className="bg-white w-full flex justify-between flex-row py-3 px-5">
         <div className="flex flex-row gap-3 text-lg items-center">
           <input
             type="checkbox"

@@ -1,6 +1,6 @@
 import { type Task } from "../../types";
 import ToDoContext from "../../context/TodoContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 interface taskProps {
   task: Task;

@@ -2,7 +2,7 @@
 
 // modified each type in relevance to the application structure and requirement
 
-export type TaskStatus = "Active" | "Completed" | "";
+export type TaskStatus = "All" | "Active" | "Completed" | "";
 
 export interface Task {
   id: string;

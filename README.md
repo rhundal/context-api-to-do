@@ -40,12 +40,21 @@
 
 ### Context Planning
 
+- Each manager maintains its own local storage
 - TodoContext (Todo Manager)
 - FilterContext (Filter Manager)
 - ThemeContext (Theme Manager)
 
 #### What is Done
 
+- Add, Edit, Delete Todo
+- Display Todos
+
 #### What is Pending
+
+- Filter Buttons implementation
+- Strike through for completed items
+- Switch Theme Light/Dark
+- Local Storage
 
 #### Reflections

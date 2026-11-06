@@ -55,3 +55,9 @@
 
 - Switch Theme Light/Dark
 - Local Storage
+
+#### Run projec
+
+- cd todo-context-api
+- npm install
+- npm run dev

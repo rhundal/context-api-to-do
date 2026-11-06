@@ -27,7 +27,6 @@
 - TaskListProps (interface)
 - TaskItemProps (interface)
 - TaskFilterProps (interface)
-- FormDataProps (interface)
 - ThemeSwitchingProps (interface)
 
 ### Components Planning

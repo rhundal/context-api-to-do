@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, useMemo, Children } from "react";
+import { useState, createContext, useMemo } from "react";
 
 import { type TaskItemProps } from "../types";
 import { type Task } from "../types";
@@ -116,7 +116,6 @@ export function TodoProvider({ children }: TodoProviderProps) {
     setDisplayedTasks(removedCompletedTasks);
   }
 
-  // Memoizing the structure down to exact state primitives to prevent unexpected re-renders
   let value = useMemo<TodoContextType>(
     () => ({
       initialTask: {

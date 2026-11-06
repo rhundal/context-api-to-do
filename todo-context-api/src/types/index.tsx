@@ -31,8 +31,9 @@ export interface TaskItemProps {
 }
 
 export interface TaskFilterProps {
+  appliedFilter: TaskStatus;
   onFilterChange: (filters: { status?: TaskStatus }) => void;
-  setFilter: (filter: string) => void;
+  setFilter: (filter: TaskStatus) => void;
 }
 
 export interface FormDataProps {

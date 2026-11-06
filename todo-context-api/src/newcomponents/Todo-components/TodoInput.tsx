@@ -2,6 +2,7 @@ import TodoList from "./TodoList";
 import FilterButtons from "../Filter-components/FilterButtons";
 import { useContext, useState } from "react";
 import ToDoContext from "../../context/TodoContext";
+import { type TaskStatus } from "../../types";
 
 export default function TodoInput() {
   const context = useContext(ToDoContext);
@@ -9,7 +10,7 @@ export default function TodoInput() {
   if (!context) return null;
 
   const { addTodo } = context.initialTask;
-
+  const [currFilter, setCurrFilter] = useState("All");
   const [inputField, setInputField] = useState("");
 
   function handleAddTask() {
@@ -39,8 +40,10 @@ export default function TodoInput() {
           </button>
         </div>
       </div>
-      <FilterButtons />
-      <TodoList />
+      <FilterButtons currFilter={currFilter} setCurrFilter={setCurrFilter} />{" "}
+      <TodoList currFilter={currFilter} />
     </>
   );
 }
+
+// pass callback to FilterButtons, get filters and pass it to TodoList

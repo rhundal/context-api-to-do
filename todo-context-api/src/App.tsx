@@ -1,6 +1,6 @@
 import "./App.css";
 
-import TodoInput from "./newcomponents/Todo-components/TodoInput";
+import TodoInput from "./components/Todo-components/TodoInput";
 import { TodoProvider } from "./context/TodoContext";
 import { FilterProvider } from "./context/FilterContext";
 

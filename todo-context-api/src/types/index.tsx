@@ -41,6 +41,9 @@ export interface FormDataProps {
   onTaskChange: (newTask: Task) => void;
 }
 
+export type ThemeType = "light" | "dark";
+
 export interface ThemeSwitchingProps {
+  currentTheme: ThemeType;
   toggleTheme: (currentTheme: string) => void;
 }

@@ -1,12 +1,18 @@
 import { type Task } from "../../types";
 import ToDoContext from "../../context/TodoContext";
 import { useContext, useState } from "react";
-
+import ThemeContext from "../../context/ThemeContext";
 interface taskProps {
   task: Task;
 }
 
 export default function TodoItem({ task }: taskProps) {
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) return null;
+
+  const activeTheme = themeContext.initialTheme.currentTheme;
+
   const isCompleted = task.status === "Completed";
 
   const [editMode, setEditMode] = useState(false);
@@ -50,7 +56,13 @@ export default function TodoItem({ task }: taskProps) {
 
   return (
     <>
-      <div className="bg-white w-full flex justify-between flex-row py-3 px-5 border-1 border-gray-300 rounded-md">
+      <div
+        className={`w-full flex justify-between flex-row py-3 px-5 border rounded-md transition-colors border-gray-300 ${
+          activeTheme === "dark"
+            ? "bg-[#1e1e1e] border-gray-700 text-white placeholder-white-500"
+            : "bg-white border-gray-200 text-black"
+        }`}
+      >
         {editMode ? (
           <form
             onSubmit={handleSubmitForm}
@@ -59,7 +71,7 @@ export default function TodoItem({ task }: taskProps) {
             <div className="flex flex-row w-full justify-between p-5">
               <input
                 type="text"
-                className="w-full h-12 border-t border-gray-100 rounded-md bg-white"
+                className="w-full h-12 border-t border-gray-100 rounded-md"
                 value={inputField}
                 onChange={(e) => setInputField(e.target.value)}
                 autoFocus
@@ -79,8 +91,10 @@ export default function TodoItem({ task }: taskProps) {
               <span
                 className={`${
                   isCompleted
-                    ? "line-through text-gray-400 italic"
-                    : "text-gray-800"
+                    ? "line-through text-gray-500 italic"
+                    : activeTheme === "dark"
+                      ? "text-gray-100"
+                      : "text-gray-800"
                 }`}
               >
                 {task.text}

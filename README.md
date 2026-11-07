@@ -50,10 +50,10 @@
 - Display Todos
 - Filter Buttons implementation
 - Strike through for completed items
+- Switch Theme Light/Dark
 
 #### What is Pending
 
-- Switch Theme Light/Dark
 - Local Storage
 
 #### Run projec

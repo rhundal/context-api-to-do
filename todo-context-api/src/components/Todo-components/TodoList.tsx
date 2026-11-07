@@ -2,17 +2,18 @@ import TodoItem from "./TodoItem";
 import { useContext } from "react";
 import ToDoContext from "../../context/TodoContext";
 import FilterContext from "../../context/FilterContext";
+import ThemeContext from "../../context/ThemeContext";
 
 export default function TodoList({ currFilter }: { currFilter: string }) {
   const context = useContext(ToDoContext);
   const filterContext = useContext(FilterContext);
+  const themeContext = useContext(ThemeContext);
 
-  if (!context || !filterContext) return null;
+  if (!context || !filterContext || !themeContext) return null;
+
+  const activeTheme = themeContext.initialTheme.currentTheme;
 
   const displayedTasks = context.displayedTasks;
-  // const currentFilter = filterContext.initialFilters.appliedFilter;
-
-  // const activeStatus = currentFilter || "All";
 
   const itemsLeftCount = displayedTasks.filter(
     (task) => task.status === "Active",
@@ -27,14 +28,27 @@ export default function TodoList({ currFilter }: { currFilter: string }) {
   console.log(displayedTasks);
 
   return (
-    <div className="m-5">
+    <div
+      className={`m-5 ${
+        activeTheme === "dark"
+          ? "bg-[#1e1e1e] border-gray-700 text-white placeholder-gray-500"
+          : "bg-white border-gray-200 text-black"
+      }`}
+    >
       <div>
         {filteredTasks.map((task) => {
           return <TodoItem key={task.id} task={task} />;
         })}
       </div>
       <hr className="border-t border-gray-300 w-full mx-auto" />
-      <div className="bg-white w-full flex justify-between flex-row p-3">
+      <div
+        className={`w-full flex justify-between flex-row p-3  ${
+          activeTheme === "dark"
+            ? "bg-[#1e1e1e] border-gray-700 text-white placeholder-gray-500"
+            : "bg-white border-gray-200 text-black"
+        }
+            `}
+      >
         {itemsLeftCount} items left
       </div>
     </div>

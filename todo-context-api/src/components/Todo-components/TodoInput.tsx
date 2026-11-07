@@ -2,12 +2,15 @@ import TodoList from "./TodoList";
 import FilterButtons from "../Filter-components/FilterButtons";
 import { useContext, useState } from "react";
 import ToDoContext from "../../context/TodoContext";
-import { type TaskStatus } from "../../types";
+import ThemeContext from "../../context/ThemeContext";
 
 export default function TodoInput() {
   const context = useContext(ToDoContext);
+  const themeContext = useContext(ThemeContext);
 
-  if (!context) return null;
+  const activeTheme = themeContext?.initialTheme.currentTheme;
+
+  if (!context || !themeContext) return null;
 
   const { addTodo } = context.initialTask;
   const [currFilter, setCurrFilter] = useState("All");
@@ -21,12 +24,28 @@ export default function TodoInput() {
 
   return (
     <>
-      <div className="flex justify-center m-5">
-        <div className="flex flex-row w-full justify-between p-5">
+      <div
+        className={`flex justify-center m-5  ${
+          activeTheme === "dark"
+            ? "bg-[#1e1e1e] border-gray-800 text-white"
+            : "bg-white border-gray-200 text-black"
+        }`}
+      >
+        <div
+          className={`flex flex-row w-full justify-between p-5  ${
+            activeTheme === "dark"
+              ? "bg-[#1e1e1e] border-gray-800 text-white"
+              : "bg-white border-gray-200 text-black"
+          }`}
+        >
           <input
             type="text"
             placeholder="What needs to be done?"
-            className="w-full h-12 border-t border-gray-100 rounded-md bg-white"
+            className={`w-full h-12 border-t border-gray-100 rounded-md transition-colors ${
+              activeTheme === "dark"
+                ? "bg-[#1e1e1e] border-gray-700 text-white placeholder-gray-500"
+                : "bg-white border-gray-200 text-black"
+            }`}
             value={inputField}
             onChange={(e) => setInputField(e.target.value)}
           />

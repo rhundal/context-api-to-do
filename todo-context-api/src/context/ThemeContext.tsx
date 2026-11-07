@@ -20,8 +20,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<ThemeType>("light");
 
-  function toggleThemeFunction() {
-    let activeTheme: ThemeType = theme === "light" ? "dark" : "light";
+  function toggleThemeFunction(currentTheme: string) {
+    let activeTheme: ThemeType = currentTheme === "light" ? "dark" : "light";
     setTheme(activeTheme);
   }
 
@@ -32,7 +32,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
         toggleTheme: toggleThemeFunction,
       },
     }),
-    [],
+    [theme],
   );
 
   return (
